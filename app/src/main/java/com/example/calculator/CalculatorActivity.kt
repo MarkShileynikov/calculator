@@ -11,18 +11,17 @@ class CalculatorActivity : AppCompatActivity() {
 
     private lateinit var inputField: TextView
     private lateinit var resultField: TextView
-    private lateinit var oldNumber: String
+    private var oldNumber = "0"
     private var operator = ""
     private var isNew = true
     private lateinit var pressedButton: Button
-    private var buttonPressed = false
+    private var operatorButtonPressed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
 
         bindViews()
-
     }
 
     private fun bindViews() {
@@ -57,7 +56,6 @@ class CalculatorActivity : AppCompatActivity() {
             }
             "+", "−", "×", "÷" -> {
                 handleOperator(button, value)
-
             }
             "=" -> {
                 calculateResult()
@@ -75,6 +73,10 @@ class CalculatorActivity : AppCompatActivity() {
     }
 
     private fun clearFields() {
+        if (operatorButtonPressed) {
+            pressedButton.background = getDrawable(R.drawable.rounded_button)
+            operatorButtonPressed = false
+        }
         inputField.text = "0"
         resultField.text = ""
         operator = ""
@@ -114,12 +116,12 @@ class CalculatorActivity : AppCompatActivity() {
     }
 
     private fun handleOperator(button: Button, value: String) {
-        if (buttonPressed) {
+        if (operatorButtonPressed) {
             pressedButton.background = getDrawable(R.drawable.rounded_button)
         }
         button.background = getDrawable(R.drawable.pressed_button)
         pressedButton = button
-        buttonPressed = true
+        operatorButtonPressed = true
         operation(value)
     }
 
@@ -138,6 +140,10 @@ class CalculatorActivity : AppCompatActivity() {
     }
 
     private fun calculateResult() {
+        if (operatorButtonPressed) {
+            pressedButton.background = getDrawable(R.drawable.rounded_button)
+            operatorButtonPressed = false
+        }
         calculate()
         operator = ""
     }
@@ -191,11 +197,12 @@ class CalculatorActivity : AppCompatActivity() {
     }
 
     private fun handleDigit(value: String) {
-        if (buttonPressed) {
+        if (operatorButtonPressed) {
             pressedButton.background = getDrawable(R.drawable.rounded_button)
-            buttonPressed = false
+            operatorButtonPressed = false
         }
-        if (inputField.text.startsWith("0") && !inputField.text.contains(".")) inputField.text = ""
+        val inputText = inputField.text.toString()
+        if (inputText.startsWith("0") && !inputText.contains(".") || inputText == getString(R.string.error)) inputField.text = ""
         inputField.append(value)
     }
 }
