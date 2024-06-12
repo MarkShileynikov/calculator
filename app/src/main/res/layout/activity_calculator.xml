@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <TextView
+        android:id="@+id/inputField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="19dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="0"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="48sp"/>
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="19dp"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputField"
+        app:layout_constraintBottom_toTopOf="@id/divider"
+        tools:text="9"
+        android:textColor="@color/light_grey"
+        android:textSize="48sp"
+        />
+    
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="19dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/gridLayout"
+        android:background="@color/divider_color"
+        />
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:columnCount="4"
+        android:rowCount="5"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/btnClear"
+            style="@style/SquareButton"
+            android:text="C"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/red"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btnSign"
+            style="@style/SquareButton"
+            android:text="+/−"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btnPercent"
+            style="@style/SquareButton"
+            android:text="%"
+            android:textColor="@color/green"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btnDivide"
+            style="@style/SquareButton"
+            android:text="÷"
+            android:layout_marginRight="19dp"
+            android:textColor="@color/green"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btn7"
+            style="@style/SquareButton"
+            android:text="7"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btn8"
+            style="@style/SquareButton"
+            android:text="8"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btn9"
+            style="@style/SquareButton"
+            android:text="9"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btnMultiply"
+            style="@style/SquareButton"
+            android:text="×"
+            android:layout_marginRight="19dp"
+            android:textColor="@color/green"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btn4"
+            style="@style/SquareButton"
+            android:text="4"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btn5"
+            style="@style/SquareButton"
+            android:text="5"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btn6"
+            style="@style/SquareButton"
+            android:text="6"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btnSubtract"
+            style="@style/SquareButton"
+            android:text="−"
+            android:layout_marginRight="19dp"
+            android:textColor="@color/green"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btn1"
+            style="@style/SquareButton"
+            android:text="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btn2"
+            style="@style/SquareButton"
+            android:text="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btn3"
+            style="@style/SquareButton"
+            android:text="3"
+            android:layout_rowSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btnAdd"
+            style="@style/SquareButton"
+            android:text="+"
+            android:textColor="@color/green"
+            android:layout_marginRight="19dp"
+            android:layout_rowSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btn0"
+            style="@style/SquareButton"
+            android:text="0"
+            android:layout_marginBottom="19dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btnDot"
+            style="@style/SquareButton"
+            android:text="."
+            android:layout_marginBottom="19dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:id="@+id/btnEquals"
+            style="@style/SquareButton"
+            android:text="="
+            android:backgroundTint="@color/green"
+            android:textColor="@color/grey"
+            android:layout_marginRight="19dp"
+            android:layout_marginBottom="19dp"
+            android:layout_columnWeight="1"
+            android:layout_columnSpan="2"
+            android:layout_rowWeight="1"/>
+    </GridLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
